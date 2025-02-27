@@ -1,4 +1,3 @@
-### Copyright Peiu Andreea - 314CA
 
 ## PHOTO GALLERY - Web Application
 
