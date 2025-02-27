@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="video-background">
+    <video autoplay loop muted>
+        <source src="{{ url_for('static', filename='capsuni.mp4') }}" type="video/mp4">
+        <img src="{{ url_for('static', filename='background.jpg') }}" alt="background image">
+    </video>
+</div>
+<div class="white-box">
+    <div class="container">
+        <!-- Display flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="alert-container mt-3">
+                    {% for category, message in messages %}
+                        <div class="alert alert-success custom-alert alert-dismissible fade show" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Dynamically load image thumbnails -->
+        {% for category, images in gallery.items() %}
+            <div class="category_names">
+                <h2>{{ category | capitalize }}</h2>
+            </div>
+            <div class="images">
+                {% for image in images %}
+                    <a href="{{ url_for('static', filename='uploads/' + category + '/' + image) }}" data-lightbox="{{ category }}">
+                        <img src="{{ url_for('static', filename='uploads/' + category + '/thumbnails/' + image) }}" alt="{{ image }}">
+                    </a>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

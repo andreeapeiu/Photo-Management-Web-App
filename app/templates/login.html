@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="video-background">
+    <video autoplay loop muted>
+        <source src="{{ url_for('static', filename='capsuni.mp4') }}" type="video/mp4">
+        <img src="{{ url_for('static', filename='background.jpg') }}" alt="background image">
+    </video>
+</div>
+<div class = "white-box3">
+    <div id="continut2">
+        <h1>Login</h1>
+        <form method="POST" action="{{ url_for('login') }}">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+        </form>
+    </div>
+</div>
+{% endblock %}

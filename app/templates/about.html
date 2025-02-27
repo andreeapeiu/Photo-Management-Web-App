@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="video-background">
+    <video autoplay loop muted>
+        <source src="{{ url_for('static', filename='capsuni.mp4') }}" type="video/mp4">
+        <img src="{{ url_for('static', filename='background.jpg') }}" alt="background image">
+    </video>
+</div>
+
+<div class="white-box2">
+    <div id="continut"> 
+        <h2>Pe aceasta pagina va puteti incarca poze cu torturile/prajiturile realizate de dvs. daca aveti cont.</h2>
+        <p>De asemenea, puteti sa imi trimiteti un mesaj cu intrebari sau sugestii.</p>
+        <br>
+        <form>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br><br>
+            <label for="mesaj">Mesaj:</label>
+            <textarea id="mesaj" name="mesaj" cols="30" rows="10" required></textarea>
+            <br><br>
+            <input type="submit" value="Submit">
+            <br><br>
+            <p>Email: andreeapeiu@yahoo.com</p>
+            <p>Telefon: 0736693093 </p>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

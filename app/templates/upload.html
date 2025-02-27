@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Upload Image</h1>
+<form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+    <label for="image">Image:</label>
+    <input type="file" id="image" name="image" required>
+    <label for="rename">Rename the image:</label>
+    <input type="text" id="name" name="name" required>
+    <br><br>
+    <label for="category">Category:</label>
+    <select id="category" name="category">
+        {% for category in categories %}
+        <option value="{{ category }}">{{ category | capitalize }}</option>
+        {% endfor %}
+    </select>
+    
+    <button type="submit">Upload</button>
+</form>
+{% endblock %}
